@@ -1,0 +1,1225 @@
+@prefix : <http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#> .
+
+<http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#alleviatesSymptom
+:alleviatesSymptom rdf:type owl:ObjectProperty ;
+                   rdfs:domain :CopingStrategy ,
+                               :Treatment ;
+                   rdfs:range [ rdf:type owl:Restriction ;
+                                owl:onProperty :alleviatesSymptom ;
+                                owl:someValuesFrom :Symptom
+                              ] .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#canInitiate
+:canInitiate rdf:type owl:ObjectProperty ;
+             rdfs:domain :Trigger ;
+             rdfs:range [ rdf:type owl:Restriction ;
+                          owl:onProperty :canInitiate ;
+                          owl:someValuesFrom :MentalHealthCondition
+                        ] .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#causeSymptom
+:causeSymptom rdf:type owl:ObjectProperty ;
+              rdfs:domain :Trigger ;
+              rdfs:range [ rdf:type owl:Restriction ;
+                           owl:onProperty :causeSymptom ;
+                           owl:someValuesFrom :Symptom
+                         ] .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#exacerbates
+:exacerbates rdf:type owl:ObjectProperty ;
+             rdfs:domain :Trigger ;
+             rdfs:range [ rdf:type owl:Restriction ;
+                          owl:onProperty :exacerbates ;
+                          owl:someValuesFrom :MentalHealthCondition
+                        ] .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#fromDrugClass
+:fromDrugClass rdf:type owl:ObjectProperty ;
+               rdfs:domain :PharmacologicalTreatment ;
+               rdfs:range [ rdf:type owl:Restriction ;
+                            owl:onProperty :fromDrugClass ;
+                            owl:someValuesFrom :Drugs
+                          ] .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#hasSideEffects
+:hasSideEffects rdf:type owl:ObjectProperty ;
+                rdfs:domain :Drugs ,
+                            :SideEffect .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#increasesRiskOf
+:increasesRiskOf rdf:type owl:ObjectProperty ;
+                 rdfs:domain :MentalHealthCondition ,
+                             :Symptom .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#isDrivenBy
+:isDrivenBy rdf:type owl:ObjectProperty ;
+            rdfs:domain :Symptom ,
+                        :Trigger .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#isRecommendedFor
+:isRecommendedFor rdf:type owl:ObjectProperty ;
+                  rdfs:domain :CopingStrategy ,
+                              :MentalHealthCondition ,
+                              :Treatment .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#isRelatedToDisorder
+:isRelatedToDisorder rdf:type owl:ObjectProperty ;
+                     rdfs:domain :DiagnosticCriterion ,
+                                 :MentalHealthCondition .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#isRelatedToSymptom
+:isRelatedToSymptom rdf:type owl:ObjectProperty ;
+                    rdfs:domain :DiagnosticCriterion ,
+                                :Symptom .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#isStageOf
+:isStageOf rdf:type owl:ObjectProperty ;
+           rdfs:domain :MentalHealthCondition ,
+                       :SeverityLevel .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#isUsedForDisorder
+:isUsedForDisorder rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Drugs ,
+                               :MentalHealthCondition .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#manifestsIn
+:manifestsIn rdf:type owl:ObjectProperty ;
+             rdfs:domain :Symptom ;
+             rdfs:range :MentalHealthCondition .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#mitigatesTrigger
+:mitigatesTrigger rdf:type owl:ObjectProperty ;
+                  rdfs:domain :CopingStrategy ;
+                  rdfs:range :Trigger .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#hasDescription
+:hasDescription rdf:type owl:DatatypeProperty ;
+                rdfs:domain :CopingStrategy ,
+                            :DiagnosticCriterion ,
+                            :MentalHealthCondition ,
+                            :SeverityLevel ,
+                            :Symptom ,
+                            :Treatment ,
+                            :Trigger ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#hasMechanismDescription
+:hasMechanismDescription rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :CopingStrategy .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#hasMinimumDuration
+:hasMinimumDuration rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :DiagnosticCriterion ;
+                    rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#hasName
+:hasName rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain owl:Thing ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#isStructuredAndGoalOriented
+:isStructuredAndGoalOriented rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :PsychotherapyApproach ;
+                             rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#isSuitableForAI
+:isSuitableForAI rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :SeverityLevel ;
+                 rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#requiresTapering
+:requiresTapering rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :PharmacologicalTreatment ;
+                  rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#BehavioralCoping
+:BehavioralCoping rdf:type owl:Class ;
+                  rdfs:subClassOf :CopingStrategy .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#CognitiveCoping
+:CognitiveCoping rdf:type owl:Class ;
+                 rdfs:subClassOf :CopingStrategy .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#CopingStrategy
+:CopingStrategy rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#DiagnosticCriterion
+:DiagnosticCriterion rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Drugs
+:Drugs rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#EmotionalCoping
+:EmotionalCoping rdf:type owl:Class ;
+                 rdfs:subClassOf :CopingStrategy .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#EnvironmentalTrigger
+:EnvironmentalTrigger rdf:type owl:Class ;
+                      rdfs:subClassOf :Trigger .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#LifestyleIntervention
+:LifestyleIntervention rdf:type owl:Class ;
+                       rdfs:subClassOf :Treatment .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#MentalHealthCondition
+:MentalHealthCondition rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#PharmacologicalTreatment
+:PharmacologicalTreatment rdf:type owl:Class ;
+                          rdfs:subClassOf :Treatment .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#PhysiologicalTrigger
+:PhysiologicalTrigger rdf:type owl:Class ;
+                      rdfs:subClassOf :Trigger .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#PsychologicalTrigger
+:PsychologicalTrigger rdf:type owl:Class ;
+                      rdfs:subClassOf :Trigger .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#PsychotherapyApproach
+:PsychotherapyApproach rdf:type owl:Class ;
+                       rdfs:subClassOf :Treatment .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#SeverityLevel
+:SeverityLevel rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#SideEffect
+:SideEffect rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#SocialTrigger
+:SocialTrigger rdf:type owl:Class ;
+               rdfs:subClassOf :Trigger .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Symptom
+:Symptom rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Treatment
+:Treatment rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Trigger
+:Trigger rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Abnormal_Dreams
+:Abnormal_Dreams rdf:type owl:NamedIndividual ,
+                          :SideEffect ;
+                 :hasName "Abnormal Dreams" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Acceptance
+:Acceptance rdf:type owl:NamedIndividual ,
+                     :CognitiveCoping ;
+            :alleviatesSymptom :Excessive_Worry ,
+                               :Irritability ;
+            :isRecommendedFor :Generalized_Anxiety_Disorder ;
+            :hasDescription "This involves allowing inner thoughts and feelings to occur without trying to change or ignore them, fostering a non-judgmental relationship with internal experiences." ;
+            :hasMechanismDescription "It reduces the struggle against unwanted emotions, which paradoxically can lessen their intensity." ;
+            :hasName "Acceptance" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Acceptance_and_Commitment_Therapy
+:Acceptance_and_Commitment_Therapy rdf:type owl:NamedIndividual ,
+                                            :PsychotherapyApproach ;
+                                   :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                                                     :Major_Depressive_Disorder ;
+                                   :hasDescription "ACT belongs to the third wave of cognitive-behavioral therapies. It emphasizes psychological flexibility, which is the ability to embrace thoughts, feelings, and experiences without judgment or avoidance, to live a life aligned with personal values. It utilizes six interconnected processes: acceptance, cognitive defusion, being present (mindfulness), self-as-context, values, and committed action." ;
+                                   :hasName "Acceptance and Commitment Therapy (ACT)" ;
+                                   :isStructuredAndGoalOriented "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Anhedonia
+:Anhedonia rdf:type owl:NamedIndividual ,
+                    :Symptom ;
+           :manifestsIn :Major_Depressive_Disorder ;
+           :hasDescription "A markedly diminished interest or pleasure in all or almost all activities that were previously enjoyable, occurring most of the day, nearly every day." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Atypical_Antidepressants
+:Atypical_Antidepressants rdf:type owl:NamedIndividual ,
+                                   :PharmacologicalTreatment ;
+                          :alleviatesSymptom :Depressed_Mood ;
+                          :isRecommendedFor :Major_Depressive_Disorder ;
+                          :hasDescription "Lumateperone predominantly functions as a 5-HT2a antagonist, with potential SERT inhibition at higher doses and indirect D1-mediated effects on prefrontal cortical neurotransmission." ;
+                          :hasName "Atypical Antidepressants" ;
+                          :requiresTapering "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Benzodiazepines
+:Benzodiazepines rdf:type owl:NamedIndividual ,
+                          :PharmacologicalTreatment ;
+                 :alleviatesSymptom :Sleep_Disturbance ;
+                 :isRecommendedFor :Excessive_Worry ,
+                                   :Generalized_Anxiety_Disorder ,
+                                   :Insomnia_Disorder ;
+                 :hasDescription "Act as GABA-A receptor agonists, enhancing the effect of the inhibitory neurotransmitter GABA, leading to sedative, anxiolytic, and muscle relaxant effects." ;
+                 :hasName "Benzodiazepines" ;
+                 :requiresTapering "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Brain_Chemistry_Differences
+:Brain_Chemistry_Differences rdf:type owl:NamedIndividual ,
+                                      :PhysiologicalTrigger ;
+                             :canInitiate :Generalized_Anxiety_Disorder ;
+                             :hasDescription "Differences in brain chemistry and function, including low serotonin system activity and elevated noradrenergic system activity, are believed to contribute to GAD. Altered neurotransmission (e.g., serotonin, norepinephrine, dopamine, GABA, glutamate) is implicated in MDD." ;
+                             :hasName "Brain Chemistry Differences" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Cognitive_Behavioral_Therapy
+:Cognitive_Behavioral_Therapy rdf:type owl:NamedIndividual ,
+                                       :PsychotherapyApproach ;
+                              :alleviatesSymptom :Depressed_Mood ,
+                                                 :Excessive_Worry ;
+                              :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                                                :Major_Depressive_Disorder ;
+                              :hasDescription "CBT is a structured, goal-oriented talk therapy based on the principle that thoughts, feelings, and behaviors are interconnected. It aims to identify and change negative or distorted thought patterns (cognitive restructuring) and maladaptive behaviors, thereby reducing symptoms and distress. It emphasizes present and future cognitions and behaviors." ;
+                              :hasName "Cognitive Behavioral Therapy (CBT)" ;
+                              :isStructuredAndGoalOriented "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Complex_Sleep_Behaviors
+:Complex_Sleep_Behaviors rdf:type owl:NamedIndividual ,
+                                  :SideEffect ;
+                         :hasName "Complex Sleep Behaviors" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Conditioned_Arousal
+:Conditioned_Arousal rdf:type owl:NamedIndividual ,
+                              :EnvironmentalTrigger ;
+                     :canInitiate :Insomnia_Disorder ;
+                     :causeSymptom :Sleep_Disturbance ;
+                     :hasDescription "The bedroom itself can become linked with wakefulness or negative emotions, where past struggles to sleep make the bed a cue for arousal rather than rest." ;
+                     :hasName "Conditioned Arousal" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Depressed_Mood
+:Depressed_Mood rdf:type owl:NamedIndividual ,
+                         :Symptom ;
+                :manifestsIn :Major_Depressive_Disorder ;
+                :hasDescription "A persistently low, sad, empty, or hopeless mood that is present most of the day, nearly every day." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Depressed_Mood_Diag
+:Depressed_Mood_Diag rdf:type owl:NamedIndividual ,
+                              :DiagnosticCriterion ;
+                     :isRelatedToDisorder :Major_Depressive_Disorder ;
+                     :isRelatedToSymptom :Depressed_Mood ;
+                     :hasDescription "Most of the day, nearly every day; may be subjective (e.g., feels sad, empty, hopeless) or observed by others (e.g., appears tearful). In children and adolescents, this can be an irritable mood." ;
+                     :hasMinimumDuration 14 ;
+                     :hasName "Depressed Mood" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dialectical_Behavior_Therapy
+:Dialectical_Behavior_Therapy rdf:type owl:NamedIndividual ,
+                                       :PsychotherapyApproach ;
+                              :alleviatesSymptom :Depressed_Mood ;
+                              :isRecommendedFor :Major_Depressive_Disorder ;
+                              :hasDescription "DBT combines cognitive-behavioral techniques with mindfulness strategies. It is structured around four key components: mindfulness, distress tolerance, emotion regulation, and interpersonal effectiveness. DBT emphasizes balancing acceptance of current reality with the need for change ('dialectics')" ;
+                              :hasName "Dialectical Behavior Therapy (DBT)" ;
+                              :isStructuredAndGoalOriented "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Diarrhea
+:Diarrhea rdf:type owl:NamedIndividual ,
+                   :SideEffect ;
+          :hasName "Diarrhea" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Diet
+:Diet rdf:type owl:NamedIndividual ,
+               :LifestyleIntervention ;
+      :alleviatesSymptom :Depressed_Mood ,
+                         :Irritability ;
+      :hasDescription "Dietary patterns influence mental health through various mechanisms, including effects on glycaemia (blood glucose levels), immune activation/inflammation, and the gut microbiome-brain axis. Healthy diets (e.g., Mediterranean diet) are associated with reduced inflammation and a healthier gut microbiome, which can positively influence mood and reduce depression risk. Conversely, high-glycemic and pro-inflammatory diets (e.g., high in refined carbohydrates, trans fats) can lead to rapid blood glucose fluctuations and increased inflammation, potentially worsening mood and anxiety." ;
+      :hasName "Diet" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Difficulty_Controlling_Worry
+:Difficulty_Controlling_Worry rdf:type owl:NamedIndividual ,
+                                       :PsychologicalTrigger ;
+                              :causeSymptom :Excessive_Worry ;
+                              :exacerbates :Generalized_Anxiety_Disorder ;
+                              :hasDescription "The inability to stop or control worrying fuels the anxious state." ;
+                              :hasName "Difficulty Controlling Worry" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Difficulty_Controlling_Worry_diag
+:Difficulty_Controlling_Worry_diag rdf:type owl:NamedIndividual ,
+                                            :DiagnosticCriterion ;
+                                   :isRelatedToDisorder :Generalized_Anxiety_Disorder ;
+                                   :isRelatedToSymptom :Difficulty_Controlling_Worry ;
+                                   :hasDescription "Individuals with GAD find it difficult to control this worry." ;
+                                   :hasName "Difficulty Controlling Worry" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Difficulty_Maintaining_Sleep
+:Difficulty_Maintaining_Sleep rdf:type owl:NamedIndividual ,
+                                       :DiagnosticCriterion ;
+                              :isRelatedToDisorder :Insomnia_Disorder ;
+                              :isRelatedToSymptom :Difficulty_Maintaining_Sleep ;
+                              :hasDescription "Characterized by frequent awakenings during the night or problems returning to sleep after waking." ;
+                              :hasMinimumDuration 90 ;
+                              :hasName "Difficulty Maintaining Sleep" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Difficulty_with_Sleep_Initiation
+:Difficulty_with_Sleep_Initiation rdf:type owl:NamedIndividual ,
+                                           :DiagnosticCriterion ;
+                                  :isRelatedToDisorder :Insomnia_Disorder ;
+                                  :isRelatedToSymptom :Difficulty_with_Sleep_Initiation ;
+                                  :hasDescription "Consistent trouble falling asleep at the beginning of the night. In children, this may manifest as difficulty initiating sleep without caregiver intervention." ;
+                                  :hasMinimumDuration 90 ;
+                                  :hasName "Difficulty with Sleep Initiation" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dissatisfaction_with_Sleep_Quantity_or_Quality
+:Dissatisfaction_with_Sleep_Quantity_or_Quality rdf:type owl:NamedIndividual ,
+                                                         :DiagnosticCriterion ;
+                                                :isRelatedToDisorder :Insomnia_Disorder ;
+                                                :isRelatedToSymptom <http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dissatisfaction_with_Sleep_Quality/Quantity:> ;
+                                                :hasDescription "Persistent dissatisfaction with sleep quantity or quality." ;
+                                                :hasMinimumDuration 90 ;
+                                                :hasName "Dissatisfaction with Sleep Quantity or Quality" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dissociation
+:Dissociation rdf:type owl:NamedIndividual ,
+                       :SideEffect ;
+              :hasName "Dissociation" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dizziness
+:Dizziness rdf:type owl:NamedIndividual ,
+                    :SideEffect ;
+           :hasName "Dizziness" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Drowsiness
+:Drowsiness rdf:type owl:NamedIndividual ,
+                     :SideEffect ;
+            :hasName "Drowsiness" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dry_Mouth
+:Dry_Mouth rdf:type owl:NamedIndividual ,
+                    :SideEffect ;
+           :hasName "Dry Mouth" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dual_Orexin_Receptor_Antagonists
+:Dual_Orexin_Receptor_Antagonists rdf:type owl:NamedIndividual ,
+                                           :PharmacologicalTreatment ;
+                                  :alleviatesSymptom :Sleep_Disturbance ;
+                                  :isRecommendedFor :Insomnia_Disorder ;
+                                  :hasDescription "Selectively block the binding of wake-promoting orexin neuropeptides A and B to their receptors (OX1R and OX2R), thereby suppressing wakefulness and facilitating sleep." ;
+                                  :hasName "Dual Orexin Receptor Antagonists (DORAS)" ;
+                                  :requiresTapering "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Duloxetine
+:Duloxetine rdf:type owl:NamedIndividual ,
+                     :Drugs ;
+            :fromDrugClass :SNRI ;
+            :hasSideEffects :Diarrhea ,
+                            :Dry_Mouth ,
+                            :Headache ,
+                            :Nausea ;
+            :isUsedForDisorder :Generalized_Anxiety_Disorder ,
+                               :Major_Depressive_Disorder ;
+            :hasDescription "Inhibits the reuptake of both serotonin (5-HT) and norepinephrine (NE), and to some extent dopamine (DA), thereby increasing their concentrations in the brain" ;
+            :hasName "Duloxetine" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Escitalopram
+:Escitalopram rdf:type owl:NamedIndividual ,
+                       :Drugs ;
+              :fromDrugClass :SSRI ;
+              :hasSideEffects :Diarrhea ,
+                              :Dry_Mouth ,
+                              :Headache ,
+                              :Nausea ;
+              :isUsedForDisorder :Generalized_Anxiety_Disorder ,
+                                 :Major_Depressive_Disorder ;
+              :hasDescription "Selectively inhibits the reuptake of serotonin (5-HT) in the brain, increasing its availability in the synaptic cleft, which is believed to modulate mood and anxiety" ;
+              :hasName "Escitalopram" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Eszopiclone
+:Eszopiclone rdf:type owl:NamedIndividual ,
+                      :Drugs ;
+             :fromDrugClass :Nonbenzodiazepines ;
+             :hasSideEffects :Complex_Sleep_Behaviors ,
+                             :Dizziness ,
+                             :Drowsiness ,
+                             :Headache ,
+                             :Nausea ,
+                             :Somnolence ;
+             :isUsedForDisorder :Insomnia_Disorder ;
+             :hasDescription "Selectively binds to specific subunits of the GABA-A receptor complex, enhancing GABA's inhibitory effects to promote sleep" ;
+             :hasName "Eszopiclone" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Excessive_Anxiety_and_Apprehensive_Expectation
+:Excessive_Anxiety_and_Apprehensive_Expectation rdf:type owl:NamedIndividual ,
+                                                         :DiagnosticCriterion ;
+                                                :isRelatedToDisorder :Generalized_Anxiety_Disorder ;
+                                                :isRelatedToSymptom :Excessive_Worry ;
+                                                :hasDescription "Occurring more days than not for at least six months, concerning a variety of events or activities such as work or school performance." ;
+                                                :hasMinimumDuration 180 ;
+                                                :hasName "Excessive Anxiety and Apprehensive Expectation" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Excessive_Worry
+:Excessive_Worry rdf:type owl:NamedIndividual ,
+                          :Symptom ;
+                 :isDrivenBy <http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Overthinking/Catastrophizing> ;
+                 :manifestsIn :Generalized_Anxiety_Disorder ;
+                 :hasDescription "Persistent and uncontrollable worry about various everyday aspects of life." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Excessive_and_Unrealistic_Worry
+:Excessive_and_Unrealistic_Worry rdf:type owl:NamedIndividual ,
+                                          :PsychologicalTrigger ;
+                                 :canInitiate :Generalized_Anxiety_Disorder ;
+                                 :causeSymptom :Excessive_Worry ;
+                                 :hasDescription "The core feature of GAD itself, where persistent and uncontrollable worry about everyday things acts as a primary psychological trigger." ;
+                                 :hasName "Excessive and Unrealistic Worry" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Exercise
+:Exercise rdf:type owl:NamedIndividual ,
+                   :LifestyleIntervention ;
+          :alleviatesSymptom :Depressed_Mood ,
+                             :Excessive_Worry ,
+                             :Fatigue ,
+                             :Sleep_Disturbance ;
+          :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                            :Major_Depressive_Disorder ;
+          :hasDescription "Physical activity reduces symptoms of depression and anxiety through a combination of biological and psychological pathways. Biologically, exercise increases the production of feel-good endorphins and other brain chemicals, reduces inflammatory and oxidative stress markers, promotes neurogenesis (growth of new brain cells), and activates the endocannabinoid system. Psychologically, it can reduce anxiety sensitivity, improve self-efficacy, boost self-confidence, provide a distraction from worries, and offer opportunities for social interaction." ;
+          :hasName "Exercise" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Exposure_to_Blue_Light
+:Exposure_to_Blue_Light rdf:type owl:NamedIndividual ,
+                                 :EnvironmentalTrigger ;
+                        :canInitiate :Insomnia_Disorder ;
+                        :causeSymptom :Sleep_Disturbance ;
+                        :exacerbates :Insomnia_Disorder ;
+                        :hasDescription "Increased exposure to blue light from artificial sources (e.g., phones, computers) before bedtime negatively impacts sleep by disrupting the circadian rhythm." ;
+                        :hasName "Exposure to Blue Light" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Fatigue
+:Fatigue rdf:type owl:NamedIndividual ,
+                  :Symptom ;
+         :isDrivenBy :Difficulty_Controlling_Worry ,
+                     :Poor_Sleep_Hygiene ;
+         :manifestsIn :Generalized_Anxiety_Disorder ,
+                      :Insomnia_Disorder ,
+                      :Major_Depressive_Disorder ;
+         :hasDescription "A pervasive and persistent lack of energy or feeling easily exhausted and tired nearly every day." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Feelings_of_Guilt
+:Feelings_of_Guilt rdf:type owl:NamedIndividual ,
+                            :Symptom ;
+                   :manifestsIn :Major_Depressive_Disorder ;
+                   :hasDescription "Pervasive feelings of worthlessness or excessive/inappropriate guilt experienced nearly every day." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Fluoxetine
+:Fluoxetine rdf:type owl:NamedIndividual ,
+                     :Drugs ;
+            :fromDrugClass :SSRI ;
+            :hasSideEffects :Dry_Mouth ,
+                            :Headache ,
+                            :Nausea ;
+            :isUsedForDisorder :Major_Depressive_Disorder ;
+            :hasDescription "Selectively inhibits the reuptake of serotonin (5-HT), increasing its concentration in the synaptic cleft, which is thought to alleviate depressive symptoms" ;
+            :hasName "Fluoxetine" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Generalized_Anxiety_Disorder
+:Generalized_Anxiety_Disorder rdf:type owl:NamedIndividual ,
+                                       :MentalHealthCondition ;
+                              :hasDescription "GAD is clinically defined by persistent and excessive worry. According to DSM-5, it is characterized by excessive anxiety and apprehensive expectation occurring more days than not for at least six months, concerning a variety of events or activities, with individuals finding it difficult to control this worry." ;
+                              :hasName "Generalized Anxiety Disorder" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Genetic_Predisposition
+:Genetic_Predisposition rdf:type owl:NamedIndividual ,
+                                 :PhysiologicalTrigger ;
+                        :canInitiate :Generalized_Anxiety_Disorder ,
+                                     :Major_Depressive_Disorder ;
+                        :hasDescription "A family history of anxiety increases the risk of developing GAD. Genetic factors play a significant role in the onset of depressive disorders." ;
+                        :hasName "Genetic Predisposition" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Headache
+:Headache rdf:type owl:NamedIndividual ,
+                   :SideEffect ;
+          :hasName "Headache" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Hopelessness_and_Helplessness
+:Hopelessness_and_Helplessness rdf:type owl:NamedIndividual ,
+                                        :PsychologicalTrigger ;
+                               :causeSymptom :Depressed_Mood ;
+                               :exacerbates :Major_Depressive_Disorder ;
+                               :hasDescription "These cognitive patterns can exacerbate depressive episodes." ;
+                               :hasName "Hopelessness and Helplessness" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Hormonal_Shifts
+:Hormonal_Shifts rdf:type owl:NamedIndividual ,
+                          :PhysiologicalTrigger ;
+                 :canInitiate :Insomnia_Disorder ;
+                 :causeSymptom :Sleep_Disturbance ;
+                 :hasDescription "Changes in hormones, particularly in women (menstrual cycle, menopause, pregnancy), can significantly impact sleep." ;
+                 :hasName "Hormonal Shifts" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Hypertensive_Risks
+:Hypertensive_Risks rdf:type owl:NamedIndividual ,
+                             :SideEffect ;
+                    :hasName "Hypertensive Risks" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Insomnia_Disorder
+:Insomnia_Disorder rdf:type owl:NamedIndividual ,
+                            :MentalHealthCondition ;
+                   :hasDescription "Insomnia Disorder is characterized by persistent dissatisfaction with sleep quantity or quality. According to DSM-5, this dissatisfaction is associated with one or more subjective complaints: difficulty with sleep initiation, difficulty maintaining sleep, or early morning waking with inability to return to sleep." ;
+                   :hasName "Insomnia Disorder" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Interpersonal_Stressors
+:Interpersonal_Stressors rdf:type owl:NamedIndividual ,
+                                  :SocialTrigger ;
+                         :canInitiate :Generalized_Anxiety_Disorder ;
+                         :causeSymptom :Excessive_Worry ;
+                         :hasDescription "Worries about family members' health, well-being of children, or general relationship concerns are common sources of anxiety." ;
+                         :hasName "Interpersonal Stressors" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Intolerance_of_Uncertainty
+:Intolerance_of_Uncertainty rdf:type owl:NamedIndividual ,
+                                     :PsychologicalTrigger ;
+                            :canInitiate :Generalized_Anxiety_Disorder ;
+                            :hasDescription "Difficulty handling unpredictable situations and indecisiveness can trigger anxious responses." ;
+                            :hasName "Intolerance of Uncertainty" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Irregular_Work_Schedules
+:Irregular_Work_Schedules rdf:type owl:NamedIndividual ,
+                                   :SocialTrigger ;
+                          :canInitiate :Insomnia_Disorder ;
+                          :causeSymptom :Sleep_Disturbance ;
+                          :hasDescription "Shift work, which requires sleeping during the day, can significantly disrupt the circadian rhythm and lead to insomnia." ;
+                          :hasName "Irregular Work Schedules" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Irritability
+:Irritability rdf:type owl:NamedIndividual ,
+                       :Symptom ;
+              :manifestsIn :Generalized_Anxiety_Disorder ,
+                           :Insomnia_Disorder ,
+                           :Major_Depressive_Disorder ;
+              :hasDescription "Being easily annoyed or frustrated, even by minor issues or due to lack of sleep." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Journaling
+:Journaling rdf:type owl:NamedIndividual ,
+                     :CognitiveCoping ;
+            :alleviatesSymptom :Depressed_Mood ,
+                               :Excessive_Worry ,
+                               :Fatigue ,
+                               :Feelings_of_Guilt ,
+                               :Irritability ,
+                               :Psychomotor_Agitation ,
+                               :Sleep_Disturbance ,
+                               :Thoughts_of_Death ;
+            :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                              :Insomnia_Disorder ,
+                              :Major_Depressive_Disorder ;
+            :hasDescription "Writing down thoughts, feelings, and experiences can provide a therapeutic outlet, allowing individuals to express emotions, gain perspective, and identify patterns or triggers." ;
+            :hasMechanismDescription "It can improve mood by externalizing internal distress." ;
+            :hasName "Journaling" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Lorazepam
+:Lorazepam rdf:type owl:NamedIndividual ,
+                    :Drugs ;
+           :fromDrugClass :Benzodiazepines ;
+           :hasSideEffects :Dizziness ,
+                           :Drowsiness ;
+           :isUsedForDisorder :Generalized_Anxiety_Disorder ;
+           :hasDescription "Acts as a GABA-A receptor agonist, enhancing the effect of the inhibitory neurotransmitter GABA, leading to sedative, anxiolytic, and muscle relaxant effects" ;
+           :hasName "Lorazepam" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Loss_of_Interest_or_Pleasure
+:Loss_of_Interest_or_Pleasure rdf:type owl:NamedIndividual ,
+                                       :DiagnosticCriterion ;
+                              :isRelatedToDisorder :Major_Depressive_Disorder ;
+                              :isRelatedToSymptom :Anhedonia ;
+                              :hasDescription "Markedly diminished interest or pleasure in all or almost all activities, occurring most of the day, nearly every day." ;
+                              :hasMinimumDuration 14 ;
+                              :hasName "Loss of Interest or Pleasure (Anhedonia)" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Maintaining_a_Consistent_Sleep_Schedule
+:Maintaining_a_Consistent_Sleep_Schedule rdf:type owl:NamedIndividual ,
+                                                  :BehavioralCoping ;
+                                         :alleviatesSymptom :Fatigue ,
+                                                            :Irritability ,
+                                                            :Sleep_Disturbance ;
+                                         :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                                                           :Insomnia_Disorder ,
+                                                           :Major_Depressive_Disorder ;
+                                         :mitigatesTrigger :Poor_Sleep_Hygiene ;
+                                         :hasDescription "Establishing and adhering to regular bedtimes and wake-up times, even on weekends, helps regulate the body's natural circadian rhythm, promoting better sleep quality." ;
+                                         :hasMechanismDescription "This helps the body anticipate sleep and wakefulness." ;
+                                         :hasName "Maintaining a Consistent Sleep Schedule" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Major_Depressive_Disorder
+:Major_Depressive_Disorder rdf:type owl:NamedIndividual ,
+                                    :MentalHealthCondition ;
+                           :hasDescription "MDD is a severe mental illness characterized by a pervasive and persistent low mood. According to DSM-5, it is diagnosed when an individual experiences a persistently low or depressed mood and/or anhedonia (markedly diminished interest or pleasure in all or almost all activities)." ;
+                           :hasName "Major Depressive Disorder" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Mild_Anxiety
+:Mild_Anxiety rdf:type owl:NamedIndividual ,
+                       :SeverityLevel ;
+              :isStageOf :Generalized_Anxiety_Disorder ;
+              :hasDescription "Individuals experience some symptoms, but these cause minimal distress and typically result in some difficulty in daily functioning. The worries may be noticeable but are not constantly consuming." ;
+              :hasName "Mild Anxiety" ;
+              :isSuitableForAI "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Mild_Depressive_Episode
+:Mild_Depressive_Episode rdf:type owl:NamedIndividual ,
+                                  :SeverityLevel ;
+                         :isStageOf :Major_Depressive_Disorder ;
+                         :hasDescription "The individual is usually distressed by the symptoms and experiences some difficulty in continuing to function in one or more domains (personal, family, social, educational, occupational, or other important domains). There are no delusions or hallucinations during this episode. Symptoms are present, but the impact on daily life is limited." ;
+                         :hasName "Mild Depressive Episode" ;
+                         :isSuitableForAI "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Mindfulness
+:Mindfulness rdf:type owl:NamedIndividual ,
+                      :LifestyleIntervention ;
+             :alleviatesSymptom :Depressed_Mood ,
+                                :Excessive_Worry ,
+                                :Irritability ,
+                                :Sleep_Disturbance ;
+             :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                               :Insomnia_Disorder ,
+                               :Major_Depressive_Disorder ;
+             :hasDescription "Mindfulness-based interventions (MBIs) enhance emotional regulation, reduce cognitive reactivity (e.g., rumination), and cultivate self-compassion. They increase metacognitive awareness, allowing individuals to observe thoughts and emotions as transient mental events rather than identifying with them. Mindfulness also improves attentional control and can reduce overgeneral autobiographical memory, which is linked to depression severity." ;
+             :hasName "Mindfulness" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Moderate_Anxiety
+:Moderate_Anxiety rdf:type owl:NamedIndividual ,
+                           :SeverityLevel ;
+                  :isStageOf :Generalized_Anxiety_Disorder ;
+                  :hasDescription "Symptoms are more pronounced and cause moderate distress. There is considerable difficulty in managing worries, and daily functioning is noticeably impaired across several domains. The individual may feel restless, easily fatigued, and have concentration issues more frequently." ;
+                  :hasName "Moderate Anxiety" ;
+                  :isSuitableForAI "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Moderate_Depressive_Episode
+:Moderate_Depressive_Episode rdf:type owl:NamedIndividual ,
+                                      :SeverityLevel ;
+                             :isStageOf :Major_Depressive_Disorder ;
+                             :hasDescription "Several symptoms are present to a marked degree, or a large number of depressive symptoms of lesser severity are present overall. The individual typically has considerable difficulty functioning in multiple domains (personal, family, social, educational, occupational, or other important domains). Psychotic symptoms may or may not be present." ;
+                             :hasName "Moderate Depressive Episode" ;
+                             :isSuitableForAI "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Nausea
+:Nausea rdf:type owl:NamedIndividual ,
+                 :SideEffect ;
+        :hasName "Nausea" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Negative_Cognitive_Styles
+:Negative_Cognitive_Styles rdf:type owl:NamedIndividual ,
+                                    :PsychologicalTrigger ;
+                           :canInitiate :Major_Depressive_Disorder ;
+                           :causeSymptom :Depressed_Mood ;
+                           :exacerbates :Major_Depressive_Disorder ;
+                           :hasDescription "Persistent pessimism, rumination (fixating on thoughts), and negative self-evaluation are significant psychological factors contributing to depression." ;
+                           :hasName "Negative Cognitive Styles" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Noise
+:Noise rdf:type owl:NamedIndividual ,
+                :EnvironmentalTrigger ;
+       :canInitiate :Insomnia_Disorder ;
+       :causeSymptom :Sleep_Disturbance ;
+       :hasDescription "Excessive noise specifically in the sleep environment is a direct disruptor of continuous sleep." ;
+       :hasName "Noise" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Nonbenzodiazepines
+:Nonbenzodiazepines rdf:type owl:NamedIndividual ,
+                             :PharmacologicalTreatment ;
+                    :alleviatesSymptom :Sleep_Disturbance ,
+                                       <http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dissatisfaction_with_Sleep_Quality/Quantity:> ;
+                    :isRecommendedFor :Insomnia_Disorder ;
+                    :hasDescription "Selectively bind to specific subunits of the GABA-A receptor complex, enhancing GABA's inhibitory effects to promote sleep." ;
+                    :hasName "Nonbenzodiazepines (\"Z-drugs\")" ;
+                    :requiresTapering "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Ongoing_Worries_About_Sleep
+:Ongoing_Worries_About_Sleep rdf:type owl:NamedIndividual ,
+                                      :PsychologicalTrigger ;
+                             :canInitiate :Insomnia_Disorder ;
+                             :causeSymptom :Sleep_Disturbance ;
+                             :exacerbates :Insomnia_Disorder ;
+                             :hasDescription "The inability to sleep itself can become a source of stress and worry, creating a vicious cycle that perpetuates insomnia." ;
+                             :hasName "Ongoing Worries About Sleep" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Physiological_Hyperarousal
+:Physiological_Hyperarousal rdf:type owl:NamedIndividual ,
+                                     :PhysiologicalTrigger ;
+                            :canInitiate :Insomnia_Disorder ;
+                            :causeSymptom :Sleep_Disturbance ;
+                            :exacerbates :Insomnia_Disorder ;
+                            :hasDescription "Individuals with insomnia often exhibit elevated night-time levels of cortisol and catecholamines, indicating increased HPA axis activity and arousal, which perpetuates sleeplessness." ;
+                            :hasName "Physiological Hyperarousal" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Poor_Sleep_Hygiene
+:Poor_Sleep_Hygiene rdf:type owl:NamedIndividual ,
+                             :EnvironmentalTrigger ;
+                    :canInitiate :Insomnia_Disorder ;
+                    :causeSymptom :Sleep_Disturbance ;
+                    :hasDescription "Habits like a noisy or overly bright bedroom, uncomfortable room temperature, or the presence of electronic devices in the sleep environment can disrupt sleep." ;
+                    :hasName "Poor Sleep Hygiene" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Problem-Solving
+:Problem-Solving rdf:type owl:NamedIndividual ,
+                          :BehavioralCoping ;
+                 :isRecommendedFor :Generalized_Anxiety_Disorder ;
+                 :mitigatesTrigger :Excessive_and_Unrealistic_Worry ,
+                                   :Intolerance_of_Uncertainty ;
+                 :hasDescription "Systematically identifying, understanding, and addressing the root cause of a problem, rather than ruminating on it, leads to actionable steps and reduces the feeling of being overwhelmed." ;
+                 :hasMechanismDescription "This shifts focus from passive worry to active resolution" ;
+                 :hasName "Problem-Solving" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Psychomotor_Agitation
+:Psychomotor_Agitation rdf:type owl:NamedIndividual ,
+                                :Symptom ;
+                       :manifestsIn :Major_Depressive_Disorder ;
+                       :hasDescription "Observable changes in physical activity, such as restlessness, pacing, or an inability to sit still (agitation), or slowed movements, speech, and thinking (retardation)." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Relaxation_Techniques
+:Relaxation_Techniques rdf:type owl:NamedIndividual ,
+                                :EmotionalCoping ;
+                       :alleviatesSymptom :Excessive_Worry ,
+                                          :Fatigue ,
+                                          :Irritability ,
+                                          :Sleep_Disturbance ;
+                       :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                                         :Insomnia_Disorder ;
+                       :mitigatesTrigger :Stress ;
+                       :hasDescription "Practices like progressive muscle relaxation, biofeedback, and breathing exercises help lower physiological arousal and anxiety, promoting a state of calm." ;
+                       :hasMechanismDescription "They train individuals to control physiological responses like heart rate and muscle tension." ;
+                       :hasName "Relaxation Techniques" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#SNRI
+:SNRI rdf:type owl:NamedIndividual ,
+               :PharmacologicalTreatment ;
+      :alleviatesSymptom :Depressed_Mood ,
+                         :Excessive_Worry ;
+      :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                        :Major_Depressive_Disorder ;
+      :hasDescription "Inhibit the reuptake of both serotonin (5-HT) and norepinephrine (NE), and to some extent dopamine (DA), thereby increasing their concentrations in the brain" ;
+      :hasName "Serotonin-Norepinephrine Reuptake Inhibitors (SNRIs)" ;
+      :requiresTapering "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#SSRI
+:SSRI rdf:type owl:NamedIndividual ,
+               :PharmacologicalTreatment ;
+      :alleviatesSymptom :Depressed_Mood ,
+                         :Excessive_Worry ;
+      :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                        :Major_Depressive_Disorder ;
+      :hasDescription "Selectively inhibit the reuptake of serotonin (5-HT) in the brain, increasing its availability in the synaptic cleft, which is believed to modulate mood and anxiety." ;
+      :hasName "Selective Serotonin Reuptake Inhibitors (SSRIs)" ;
+      :requiresTapering "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Self-Compassion
+:Self-Compassion rdf:type owl:NamedIndividual ,
+                          :EmotionalCoping ;
+                 :alleviatesSymptom :Feelings_of_Guilt ;
+                 :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                                   :Major_Depressive_Disorder ;
+                 :hasDescription "Treating oneself with kindness and understanding, especially during distress, acts as a buffer against negative self-judgment often associated with mental health struggles." ;
+                 :hasMechanismDescription "Not explicitly detailed as a separate mechanism description; the description itself implies the mechanism." ;
+                 :hasName "Self-Compassion" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Sertraline
+:Sertraline rdf:type owl:NamedIndividual ,
+                     :Drugs ;
+            :fromDrugClass :SSRI ;
+            :hasSideEffects :Diarrhea ,
+                            :Dry_Mouth ,
+                            :Headache ,
+                            :Nausea ;
+            :isUsedForDisorder :Generalized_Anxiety_Disorder ,
+                               :Major_Depressive_Disorder ;
+            :hasDescription "Selectively inhibits the reuptake of serotonin (5-HT) in the brain, increasing its availability in the synaptic cleft, which is believed to modulate mood and anxiety" ;
+            :hasName "Sertraline" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Severe_Anxiety
+:Severe_Anxiety rdf:type owl:NamedIndividual ,
+                         :SeverityLevel ;
+                :isStageOf :Generalized_Anxiety_Disorder ;
+                :hasDescription "Symptoms are present to a marked or intense degree, causing severe distress and being largely unmanageable. There is serious difficulty continuing to function in most areas of life. The excessive worry is pervasive and highly intrusive. This level of severity is associated with significant functional impairment." ;
+                :hasName "Severe Anxiety" ;
+                :isSuitableForAI "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Severe_Depressive_Episode
+:Severe_Depressive_Episode rdf:type owl:NamedIndividual ,
+                                    :SeverityLevel ;
+                           :isStageOf :Major_Depressive_Disorder ;
+                           :hasDescription "Many or most symptoms are present to a marked degree, or a smaller number of symptoms are present and manifest to an intense degree. The intensity of symptoms is seriously distressing and unmanageable, and the symptoms markedly interfere with social and occupational functioning. The individual has serious difficulty continuing to function in most domains (personal, family, social, educational, occupational, or other important domains). Psychotic symptoms may or may not be present." ;
+                           :hasName "Severe Depressive Episode" ;
+                           :isSuitableForAI "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Significant_Interpersonal_Loss
+:Significant_Interpersonal_Loss rdf:type owl:NamedIndividual ,
+                                         :SocialTrigger ;
+                                :canInitiate :Major_Depressive_Disorder ;
+                                :causeSymptom :Depressed_Mood ;
+                                :hasDescription "The loss of someone important, whether due to death or the end of a relationship, is a common risk factor for MDD episodes." ;
+                                :hasName "Significant Interpersonal Loss" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Sleep-Related_Disorders
+:Sleep-Related_Disorders rdf:type owl:NamedIndividual ,
+                                  :PhysiologicalTrigger ;
+                         :canInitiate :Insomnia_Disorder ;
+                         :causeSymptom :Sleep_Disturbance ;
+                         :hasDescription "Conditions such as sleep apnea (pauses in breathing) and restless legs syndrome (uncomfortable urge to move legs) directly interfere with sleep." ;
+                         :hasName "Sleep-Related Disorders" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Sleep_Disturbance
+:Sleep_Disturbance rdf:type owl:NamedIndividual ,
+                            :Symptom ;
+                   :increasesRiskOf :Generalized_Anxiety_Disorder ,
+                                    :Major_Depressive_Disorder ;
+                   :isDrivenBy :Excessive_and_Unrealistic_Worry ,
+                               :Poor_Sleep_Hygiene ,
+                               <http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Overthinking/Catastrophizing> ;
+                   :manifestsIn :Generalized_Anxiety_Disorder ,
+                                :Insomnia_Disorder ,
+                                :Major_Depressive_Disorder ;
+                   :hasDescription "Difficulty falling or staying asleep, or experiencing restless and unsatisfying sleep." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Sleep_Hygiene
+:Sleep_Hygiene rdf:type owl:NamedIndividual ,
+                        :LifestyleIntervention ;
+               :alleviatesSymptom :Fatigue ,
+                                  :Irritability ,
+                                  :Sleep_Disturbance ;
+               :isRecommendedFor :Insomnia_Disorder ;
+               :hasDescription "Sleep hygiene recommendations aim to promote healthy sleep habits and optimize the sleep environment. This includes establishing a regular sleep schedule, avoiding stimulants (caffeine, nicotine, alcohol) and heavy meals before bedtime, limiting screen time, ensuring a quiet, dark, and cool sleep environment, and getting out of bed if sleep does not come. These practices reduce physiological arousal and cognitive activity, which are counterproductive to sleep." ;
+               :hasName "Sleep Hygiene" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Sleep_Restriction
+:Sleep_Restriction rdf:type owl:NamedIndividual ,
+                            :BehavioralCoping ;
+                   :alleviatesSymptom :Sleep_Disturbance ,
+                                      <http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dissatisfaction_with_Sleep_Quality/Quantity:> ;
+                   :isRecommendedFor :Insomnia_Disorder ;
+                   :hasDescription "A behavioral technique where time spent in bed is initially limited to the actual sleep time, to build up sleep drive and improve sleep efficiency." ;
+                   :hasMechanismDescription "This is gradually increased as sleep consolidates." ;
+                   :hasName "Sleep Restriction" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Social_Connection
+:Social_Connection rdf:type owl:NamedIndividual ,
+                            :LifestyleIntervention ;
+                   :alleviatesSymptom :Depressed_Mood ,
+                                      :Excessive_Worry ;
+                   :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                                     :Major_Depressive_Disorder ;
+                   :hasDescription "Social connectedness, encompassing social support and social networks, protects against depression and anxiety. Theories like attachment theory and social support/buffering theory suggest that strong social bonds mitigate the negative impact of stressful events and prevent feelings of despair. Positive social interactions can reduce loneliness, increase self-esteem, and enhance life satisfaction." ;
+                   :hasName "Social Connection" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Social_Isolation
+:Social_Isolation rdf:type owl:NamedIndividual ,
+                           :SocialTrigger ;
+                  :causeSymptom :Depressed_Mood ;
+                  :exacerbates :Generalized_Anxiety_Disorder ,
+                               :Major_Depressive_Disorder ;
+                  :hasDescription "GAD can lead to or be exacerbated by social isolation, further impacting quality of life. Poor quality of social interactions and social isolation can increase the risk of depression. Uncontrolled studies suggest that becoming isolated tends to worsen and prolong a depressive episode." ;
+                  :hasName "Social Isolation" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Social_Support
+:Social_Support rdf:type owl:NamedIndividual ,
+                         :EmotionalCoping ;
+                :alleviatesSymptom :Depressed_Mood ,
+                                   :Irritability ;
+                :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                                  :Major_Depressive_Disorder ;
+                :mitigatesTrigger :Significant_Interpersonal_Loss ,
+                                  :Social_Isolation ,
+                                  :Stress ;
+                :hasDescription "Engaging with trusted friends, family, or support groups provides emotional support, reduces feelings of isolation, and offers opportunities to share struggles." ;
+                :hasMechanismDescription "This fosters a sense of belonging and validation." ;
+                :hasName "Social Support" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Somnolence
+:Somnolence rdf:type owl:NamedIndividual ,
+                     :SideEffect ;
+            :hasName "Somnolence" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Stimulus_Control_Therapy
+:Stimulus_Control_Therapy rdf:type owl:NamedIndividual ,
+                                   :BehavioralCoping ;
+                          :alleviatesSymptom :Sleep_Disturbance ,
+                                             <http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dissatisfaction_with_Sleep_Quality/Quantity:> ;
+                          :isRecommendedFor :Insomnia_Disorder ;
+                          :mitigatesTrigger :Conditioned_Arousal ;
+                          :hasDescription "A key CBT-I technique that retrains the brain to associate the bed only with sleep (and sex), by instructing individuals to leave the bedroom if unable to sleep within a short period and return only when sleepy." ;
+                          :hasMechanismDescription "Not explicitly detailed as a separate mechanism description; the description itself implies the mechanism (retraining association)." ;
+                          :hasName "Stimulus Control Therapy" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Stress
+:Stress rdf:type owl:NamedIndividual ,
+                 :PsychologicalTrigger ;
+        :canInitiate :Generalized_Anxiety_Disorder ,
+                     :Insomnia_Disorder ;
+        :causeSymptom :Sleep_Disturbance ;
+        :hasDescription "Concerns about work, school, health, money, or family can keep the mind active at night, making it hard to sleep. Stressful life events (e.g., death, divorce, job loss) can also lead to insomnia." ;
+        :hasName "Stress" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Stressful_Situations
+:Stressful_Situations rdf:type owl:NamedIndividual ,
+                               :EnvironmentalTrigger ;
+                      :canInitiate :Generalized_Anxiety_Disorder ;
+                      :causeSymptom :Sleep_Disturbance ,
+                                    :Stress ;
+                      :exacerbates :Generalized_Anxiety_Disorder ;
+                      :hasDescription "Recent or prolonged exposure to stressful situations can trigger or exacerbate GAD symptoms. This includes general life stressors that create a feeling of being overwhelmed." ;
+                      :hasName "Stressful Situation" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Suvorexant
+:Suvorexant rdf:type owl:NamedIndividual ,
+                     :Drugs ;
+            :fromDrugClass :Dual_Orexin_Receptor_Antagonists ;
+            :hasSideEffects :Abnormal_Dreams ,
+                            :Diarrhea ,
+                            :Dizziness ,
+                            :Dry_Mouth ,
+                            :Fatigue ,
+                            :Headache ,
+                            :Somnolence ;
+            :isUsedForDisorder :Insomnia_Disorder ;
+            :hasDescription "Selectively blocks the binding of wake-promoting orexin neuropeptides A and B to their receptors (OX1R and OX2R), thereby suppressing wakefulness and facilitating sleep" ;
+            :hasName "Suvorexant" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Thoughts_of_Death
+:Thoughts_of_Death rdf:type owl:NamedIndividual ,
+                            :Symptom ;
+                   :manifestsIn :Major_Depressive_Disorder ;
+                   :hasDescription "Recurrent thoughts of death (beyond just fear of dying), recurrent suicidal ideation without a specific plan, or a suicide attempt or a specific plan for suicide." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Travel_Across_Time_Zones
+:Travel_Across_Time_Zones rdf:type owl:NamedIndividual ,
+                                   :SocialTrigger ;
+                          :canInitiate :Insomnia_Disorder ;
+                          :causeSymptom :Sleep_Disturbance ;
+                          :hasDescription "Jet lag, caused by rapid travel across multiple time zones, disrupts the body's internal clock and can induce insomnia." ;
+                          :hasName "Travel Across Time Zones" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Underlying_Medical_Conditions
+:Underlying_Medical_Conditions rdf:type owl:NamedIndividual ,
+                                        :PhysiologicalTrigger ;
+                               :canInitiate :Generalized_Anxiety_Disorder ,
+                                            :Insomnia_Disorder ,
+                                            :Major_Depressive_Disorder ;
+                               :causeSymptom :Sleep_Disturbance ;
+                               :exacerbates :Generalized_Anxiety_Disorder ,
+                                            :Major_Depressive_Disorder ;
+                               :hasDescription "Certain health conditions, such as thyroid problems (hyperthyroidism), heart arrhythmias, diabetes, epilepsy, and gastroesophageal reflux disease (GERD), can cause or worsen anxiety symptoms. A wide range of physical illnesses can disrupt sleep, including chronic pain, cancer, diabetes, heart disease, asthma, GERD, overactive thyroid, Parkinson's disease, and Alzheimer's disease." ;
+                               :hasName "Underlying Medical Conditions" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Venlafaxine
+:Venlafaxine rdf:type owl:NamedIndividual ,
+                      :Drugs ;
+             :fromDrugClass :SNRI ;
+             :hasSideEffects :Diarrhea ,
+                             :Dry_Mouth ,
+                             :Headache ,
+                             :Nausea ;
+             :isUsedForDisorder :Generalized_Anxiety_Disorder ,
+                                :Major_Depressive_Disorder ;
+             :hasDescription "Inhibits the reuptake of both serotonin (5-HT) and norepinephrine (NE), and to some extent dopamine (DA), thereby increasing their concentrations in the brain" ;
+             :hasName "Venlafaxine" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Weight_Gain
+:Weight_Gain rdf:type owl:NamedIndividual ,
+                      :SideEffect ;
+             :hasName "Weight Gain" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Zolpidem
+:Zolpidem rdf:type owl:NamedIndividual ,
+                   :Drugs ;
+          :fromDrugClass :Nonbenzodiazepines ;
+          :hasSideEffects :Complex_Sleep_Behaviors ,
+                          :Dizziness ,
+                          :Drowsiness ,
+                          :Headache ,
+                          :Nausea ,
+                          :Somnolence ;
+          :isUsedForDisorder :Insomnia_Disorder ;
+          :hasDescription "Selectively binds to specific subunits of the GABA-A receptor complex, enhancing GABA's inhibitory effects to promote sleep" ;
+          :hasName "Zolpidem" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dissatisfaction_with_Sleep_Quality/Quantity:
+<http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Dissatisfaction_with_Sleep_Quality/Quantity:> rdf:type owl:NamedIndividual ,
+                                                                                                                   :Symptom ;
+                                                                                                          :manifestsIn :Insomnia_Disorder ;
+                                                                                                          :hasDescription "A persistent dissatisfaction with the amount or restorative quality of sleep." .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Overthinking/Catastrophizing
+<http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Overthinking/Catastrophizing> rdf:type owl:NamedIndividual ,
+                                                                                                   :PsychologicalTrigger ;
+                                                                                          :canInitiate :Generalized_Anxiety_Disorder ;
+                                                                                          :causeSymptom :Excessive_Worry ;
+                                                                                          :hasDescription "Overthinking plans, solutions, and perceiving situations as threatening even when they are not, contributes to persistent anxiety." ;
+                                                                                          :hasName "Overthinking/Catastrophizing" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Physical_Activity/Exercise
+<http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Physical_Activity/Exercise> rdf:type owl:NamedIndividual ,
+                                                                                                 :BehavioralCoping ;
+                                                                                        :alleviatesSymptom :Depressed_Mood ,
+                                                                                                           :Excessive_Worry ,
+                                                                                                           :Fatigue ,
+                                                                                                           :Irritability ,
+                                                                                                           :Sleep_Disturbance ;
+                                                                                        :isRecommendedFor :Generalized_Anxiety_Disorder ,
+                                                                                                          :Insomnia_Disorder ,
+                                                                                                          :Major_Depressive_Disorder ;
+                                                                                        :mitigatesTrigger :Stress ;
+                                                                                        :hasDescription "Engaging in regular physical activity, even moderate amounts (e.g., 30 minutes, 5 times/week), can boost mood, reduce stress hormones, and provide a healthy outlet for anxious energy." ;
+                                                                                        :hasMechanismDescription "It works by pumping up feel-good endorphins and distracting from worries." ;
+                                                                                        :hasName "Physical Activity/Exercise" .
+
+
+###  http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Substance_Use/Withdrawal
+<http://www.semanticweb.org/ahmed/ontologies/2025/5/OntoIDA#Substance_Use/Withdrawal> rdf:type owl:NamedIndividual ,
+                                                                                               :PhysiologicalTrigger ;
+                                                                                      :canInitiate :Insomnia_Disorder ,
+                                                                                                   :Major_Depressive_Disorder ;
+                                                                                      :causeSymptom :Sleep_Disturbance ;
+                                                                                      :exacerbates :Generalized_Anxiety_Disorder ,
+                                                                                                   :Major_Depressive_Disorder ;
+                                                                                      :hasDescription "Excessive use of caffeine or tobacco, and withdrawal from certain medications (e.g., albuterol, levothyroxine, decongestants, antidepressants, antianxiety medications) or substances, can exacerbate existing anxiety. Alcohol consumption and certain medications can trigger or exacerbate depressive episodes. Caffeine, nicotine, and alcohol are stimulants or disruptors that can prevent sleep or fragment its quality. Withdrawal from substances like alcohol, sedatives, or opioids can also cause severe insomnia" ;
+                                                                                      :hasName "Substance Use/Withdrawal" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
