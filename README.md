@@ -1,130 +1,65 @@
-# 🧠 Lluma: Ontology-Grounded AI Assistant for Mental Health Support
+# Lluma: Large Language Understanding Mental Assistant
 
-Authors:
+## Description
 
-Ahmed OUIDANI¹*, Chihab OUCHEN¹, Abderrahman CHEKRY²
+Lluma is a mental health assistant that leverages a specialized ontology and a Retrieval-Augmented Generation (RAG) system to provide context-aware and empathetic support for individuals facing mental health challenges. This project is particularly focused on addressing the mental health gap in under-resourced countries like Morocco.
 
-¹ Graduate School of Technology & Polydisciplinary Faculty, Cadi Ayyad University, Safi, Morocco
-² LAPSSII Laboratory, Graduate School of Technology, Cadi Ayyad University, Safi, Morocco
+The primary goal of this project is twofold:
 
-📧 a.ouidani9533@uca.ac.ma
+1.  To create a comprehensive mental health ontology that models a wide range of concepts and their relationships.
+2.  To integrate this ontology into a RAG-powered Large Language Model (LLM) to create a real-world assistant.
 
-___
-### 🩺 Overview
-Lluma is a research project that integrates a formal mental health ontology with a Retrieval-Augmented Generation (RAG) framework powered by a Large Language Model (LLM).
-It aims to provide context-aware, safe, and factually grounded mental health information, particularly in under-resourced regions like Morocco.
+## Features
 
-This repository contains:
+  * **Specialized Mental Health Ontology**: A detailed knowledge base covering mental health conditions, symptoms, treatments, and more.
+  * **Retrieval-Augmented Generation (RAG)**: The system uses RAG to ground the LLM's responses in factual and verifiable information from the ontology, which helps to mitigate hallucinations and improve accuracy.
+  * **Context-Aware Support**: Lluma is designed to provide precise and relevant answers to user queries about mental health.
+  * **Open Source**: The project is open source and can be used by researchers and developers to build upon this work.
 
-- The ontology (lumaOnto.ttl) describing mental health concepts (e.g., anxiety, depression, insomnia).
-- The implementation notebook (lluma(5).ipynb) showing how the ontology is integrated into a Hybrid RAG system built with LangChain and a local Mistral-7B model.
+## Ontology
 
-___
-### 🧩 Repository Structure
-```text
-📂 Lluma/
-├── 📜 README.md                ← Project overview
-├── 🧠 lumaOnto.ttl             ← Mental health ontology (OWL/RDF format)
-└── 💻 lluma.ipynb              ← Jupyter notebook (Hybrid RAG implementation)
-```
-___
-### ⚙️ System Architecture
+The mental health ontology is a core component of this project. It is written in the Turtle language and defines the following key classes:
 
-Lluma combines three main components:
-1. Ontology Layer (Knowledge Base)
-    - Built in OWL using Protégé
-    - Captures disorders (GAD, MDD, Insomnia), symptoms, treatments, and relationships
-    - Structured for graph traversal and semantic reasoning
+  * **MentalHealthCondition**: Represents various mental health disorders.
+  * **Symptom**: Describes the symptoms associated with mental health conditions.
+  * **Treatment**: Covers different treatment approaches, including `PharmacologicalTreatment` and `PsychotherapyApproach`.
+  * **CopingStrategy**: Defines strategies for managing mental health, categorized into `BehavioralCoping`, `CognitiveCoping`, and `EmotionalCoping`.
+  * **Trigger**: Represents factors that can initiate or exacerbate mental health conditions.
+  * **Drugs**:  Describes medications used in treatment.
+  * **SideEffect**:  Represents potential side effects of medications.
 
-2. Hybrid RAG Pipeline (LangChain)
-    - Uses FAISS for semantic vector retrieval
-    - Employs a custom HybridGraphRetriever combining:
-      - Vector similarity search (semantic relevance)
-      - RDF graph traversal (relational context)
+The ontology also defines a rich set of object and data properties to represent the relationships between these classes, such as `alleviatesSymptom`, `causeSymptom`, `isRecommendedFor`, and `hasDescription`.
 
-3. Local LLM Engine
-    - Model: Mistral-7B-Instruct-v0.2 via CTransformers
-    - Generates grounded, empathetic responses
-    - Memory: ConversationBufferMemory
+## Getting Started
 
-___
-### 📘 How to Run
-#### 1️⃣ Requirements
+### Prerequisites
 
-Install dependencies in a clean Python environment (Python ≥3.10):
-```
-pip install langchain faiss-cpu rdflib sentence-transformers ctransformers jupyter
-```
+You will need Python 3 and Jupyter Notebook installed to run the project.
 
-#### 2️⃣ Launch the notebook
-```
-jupyter notebook lluma.ipynb
-```
-#### 3️⃣ Configure your model
+### Installation
 
-Ensure you have the Mistral-7B-Instruct-v0.2 weights available locally or specify the path inside the notebook cell.
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/lluma.git
+    cd lluma
+    ```
+2.  Install the required dependencies:
+    ```bash
+    pip install -U langchain langchain-community rdflib sentence-transformers faiss-cpu ctransformers~=0.2.27
+    ```
 
-4️⃣ Interact with Lluma
+### Usage
 
-Run the conversation cells to test queries such as:
+1.  Open the `lluma.ipynb` notebook in Jupyter.
+2.  Make sure the `lumaOnto.ttl` ontology file is in the same directory.
+3.  Run the cells in the notebook to load the ontology, initialize the RAG model, and interact with the Lluma assistant.
 
-“What are common treatments for insomnia?”
+## Citation
 
-“Can anxiety and depression occur together?”
+If you use this work in your research, please cite the following paper:
 
-“What should I do if I feel hopeless?”
+OUIDANI Ahmed, OUCHEN Chihab, CHEKRY Abderrahman. "Introducing Lluma: Large language understanding mental assistant."
 
-🧠 Ontology Details
+## License
 
-File: lumaOnto.ttl
-
-Format: RDF/OWL
-
-Editor: Protégé 5.x
-
-Main Classes:
-
-Disorder, Symptom, Treatment, Trigger, SeverityLevel
-
-Main Object Properties:
-
-hasSymptom, hasTreatment, triggeredBy, manifestsIn
-
-You can visualize or edit the ontology using Protégé
-.
-
-📊 Key Results
-Evaluation Aspect	Base LLM	Lluma (Ontology + RAG)
-Factual Accuracy	❌ Frequent hallucinations	✅ Fully grounded in ontology
-Safety in Sensitive Queries	❌ Risk of harmful suggestions	✅ Redirects to professionals, local crisis line
-Domain Consistency	❌ Breaks persona	✅ Stays within mental health scope
-📍 Citation
-
-If you use Lluma or its ontology in your research, please cite:
-
-Ouidani, A., Ouchen, C., & Chekry, A. (2025). Introducing Lluma: Large Language Understanding Mental Assistant. iJXX Journal, 2025.
-
-BibTeX:
-
-@article{ouidani2025lluma,
-  title={Introducing Lluma: Large Language Understanding Mental Assistant},
-  author={Ouidani, Ahmed and Ouchen, Chihab and Chekry, Abderrahman},
-  journal={iJXX Journal},
-  year={2025}
-}
-
-🤝 Contributing
-
-Contributions are welcome!
-You can:
-
-Extend the ontology with new disorders or localized knowledge
-
-Improve the RAG retriever or model prompt design
-
-Help evaluate the system through user studies
-
-⚠️ Disclaimer
-
-Lluma is a research prototype for educational and scientific use only.
-It does not provide medical advice or replace consultation with qualified healthcare professionals.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
